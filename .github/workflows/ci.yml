@@ -22,8 +22,8 @@ jobs:
     needs: matrix_builder
     strategy:
       matrix:
-        node-version: fromJSON(needs.matrix_builder.outputs.node-version-matrix)
-        os: fromJSON(needs.matrix_builder.outputs.os-matrix)
+        node-version: ${{ fromJSON(needs.matrix_builder.outputs.node-version-matrix) }}
+        os: ${{ fromJSON(needs.matrix_builder.outputs.os-matrix) }}
     runs-on: ${{ matrix.os }}
 
     steps:
